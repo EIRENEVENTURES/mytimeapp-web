@@ -10,6 +10,8 @@ import AdminLoginScreen from "./components/admin/AdminLoginScreen";
 import AdminDashboard from "./components/admin/AdminDashboard";
 import TermsOfUseAndPrivacyPolicy from "./pages/TermsOfUseAndPrivacyPolicy";
 import DeleteAccount from "./pages/DeleteAccount";
+import PaystackPayment from "./pages/PaystackPayment";
+import PaystackCallback from "./pages/PaystackCallback";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +28,8 @@ const App = () => (
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/TermsofuseandPrivacypolicy" element={<TermsOfUseAndPrivacyPolicy />} />
             <Route path="/delete_account" element={<DeleteAccount />} />
+            <Route path="/paystack-payment" element={<PaystackPayment />} />
+            <Route path="/paystack-callback" element={<PaystackCallback />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

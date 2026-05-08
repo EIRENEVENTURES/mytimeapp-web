@@ -1,0 +1,39 @@
+{
+  "version": 2,
+  "name": "mytimeapp-web",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/paystack-payment",
+      "dest": "/paystack-payment.html"
+    },
+    {
+      "src": "/paystack-callback",
+      "dest": "/paystack-callback.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "env": {
+    "VITE_PAYSTACK_PUBLIC_KEY": "@paystack_public_key",
+    "VITE_PAYSTACK_SECRET_KEY": "@paystack_secret_key",
+    "VITE_PAYSTACK_WEBHOOK_SECRET": "@paystack_webhook_secret",
+    "VITE_BACKEND_API_URL": "@backend_api_url",
+    "VITE_APP_DEEP_LINK": "@app_deep_link"
+  },
+  "functions": {
+    "api/paystack/webhook.js": {
+      "maxDuration": 30
+    }
+  }
+}
