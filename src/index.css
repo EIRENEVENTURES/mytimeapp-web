@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MyTime Mobile App Design System - Light/Dark Theme Social Monetization Platform */
+
+@layer base {
+  :root {
+    /* MyTime Light Theme Colors */
+    --background: 0 0% 98%; /* #fafafa */
+    --foreground: 0 0% 10%; /* #1a1a1a */
+
+    --card: 0 0% 100%; /* #ffffff */
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 211 100% 50%; /* #007AFF - iOS Blue */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%; /* #f5f5f5 */
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 0 0% 94%; /* #f0f0f0 */
+    --muted-foreground: 0 0% 45%; /* #737373 */
+
+    --accent: 211 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 4 90% 58%; /* #FF3B30 */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%; /* #e5e5e5 */
+    --input: 0 0% 94%;
+    --ring: 211 100% 50%;
+
+    --radius: 12px;
+
+    /* MyTime Feature Colors */
+    --chat-green: 142 76% 36%; /* #32D74B */
+    --calls-green: 142 70% 45%; /* #34C759 */
+    --live-red: 4 90% 58%; /* #FF3B30 */
+    --streams-purple: 281 44% 58%; /* #AF52DE */
+    --spaces-orange: 28 100% 50%; /* #FF9500 */
+    --wallet-blue: 211 100% 50%; /* #007AFF */
+
+    /* Gradients */
+    --gradient-main: linear-gradient(135deg, hsl(var(--primary)), hsl(281 44% 58%));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(0 0% 96%));
+    --gradient-feature: linear-gradient(135deg, rgba(0, 122, 255, 0.08), rgba(175, 82, 222, 0.08));
+
+    /* Shadows */
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-feature: 0 2px 8px rgba(0, 122, 255, 0.12);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .dark {
+    /* MyTime Dark Theme Colors */
+    --background: 0 0% 5%; /* #0c0c0c */
+    --foreground: 0 0% 100%; /* #fff */
+
+    --card: 0 0% 10%; /* #1a1a1a */
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 211 100% 50%; /* #007AFF - iOS Blue */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 20%; /* #333 */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 55%; /* #8c8c8c */
+
+    --accent: 211 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 4 90% 58%; /* #FF3B30 */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%; /* #333 */
+    --input: 0 0% 15%;
+    --ring: 211 100% 50%;
+
+    /* Gradients for dark */
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(0 0% 8%));
+    --gradient-feature: linear-gradient(135deg, rgba(0, 122, 255, 0.1), rgba(175, 82, 222, 0.1));
+
+    /* Shadows for dark */
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-feature: 0 2px 8px rgba(0, 122, 255, 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Components */
+@layer components {
+  .mobile-container {
+    @apply max-w-sm md:max-w-2xl lg:max-w-4xl mx-auto min-h-screen bg-background;
+  }
+
+  .feature-card {
+    @apply bg-card rounded-2xl p-4 shadow-[var(--shadow-card)] border border-border transition-[var(--transition-smooth)];
+  }
+  
+  .feature-card:hover {
+    @apply transform scale-[1.02];
+  }
+
+  .stats-card {
+    @apply bg-gradient-to-br from-card to-muted/50 rounded-xl p-4 border border-border/50;
+  }
+
+  .action-button {
+    @apply flex items-center gap-3 p-4 rounded-xl transition-[var(--transition-smooth)] font-medium;
+  }
+
+  .chat-button {
+    @apply action-button bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20;
+  }
+  
+  .calls-button {
+    @apply action-button bg-green-600/10 text-green-600 dark:text-green-300 border border-green-600/20;
+  }
+  
+  .live-button {
+    @apply action-button bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20;
+  }
+  
+  .streams-button {
+    @apply action-button bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20;
+  }
+  
+  .spaces-button {
+    @apply action-button bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20;
+  }
+  
+  .wallet-button {
+    @apply action-button bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20;
+  }
+}
