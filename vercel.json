@@ -12,16 +12,9 @@
   ],
   "routes": [
     {
-      "src": "/paystack-payment",
-      "dest": "/paystack-payment.html"
-    },
-    {
-      "src": "/paystack-callback",
-      "dest": "/paystack-callback.html"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/index.html",
+      "methods": ["GET", "HEAD", "OPTIONS"]
     }
   ],
   "env": {
