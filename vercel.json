@@ -1,20 +1,13 @@
 {
   "version": 2,
   "name": "mytimeapp-web",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    }
-  ],
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.html",
-      "methods": ["GET", "HEAD", "OPTIONS"]
+      "dest": "/index.html"
     }
   ],
   "env": {
